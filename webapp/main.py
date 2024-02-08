@@ -14,30 +14,35 @@ app = FastAPI()
 
 
 # fUNCION 1
+# Ruta para obtener información de un desarrollador:
 @app.get("/get_developer/{developer}")
 def get_developer(desarrollador: str):
     funcion_uno = developer(desarrollador)
     return funcion_uno
 
 # fUNCION 2
+# Ruta para obtener información de un usuario:
 @app.get("/userdata/{user_id}")
 def userdata(user_id: str):
     funcion_dos = user_data(user_id)
     return funcion_dos
 
 # fUNCION 3
+# Ruta para obtener información de un usuario por género:
 @app.get("/usergenre/{genres}")
 def usergenre(genero: str):
     funcion_tres = User_For_Genre(genero)
     return funcion_tres
 
 # fUNCION 4
+# Ruta para obtener el mejor desarrollador de un año:
 @app.get("/bestdeveloper/{year}")
 def bestdeveloper(year: int):
     funcion_cuatro = best_developer_year(year)
     return funcion_cuatro
 
-    # fUNCION 5
+# fUNCION 5
+# Ruta para obtener análisis de reviews de un desarrollador:
 @app.get("/developerreviews/{developer}")
 def developerreviews(desarrolladora: str):
     funcion_cinco = desarrollador_reviews_analysis(desarrolladora)
@@ -59,52 +64,3 @@ def obtener_recomendacion_usuario(user_id: str):
     # Llama a la función lógica de recomendación de usuario
     recommended_games_user = recomendacion_usuario(user_id)
     return recommended_games_user
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# app.mount("/ui", StaticFiles(directory=static_path), name="ui")
-
-# @app.get('/')
-# def root():
-#     html_path = join(static_path, "index.html")
-#     return FileResponse(html_path)
-
-# current_dir = dirname(abspath(__file__))
-# static_path = join(current_dir, "static")
-
-
-
-
-# class Body(BaseModel):
-#     length: Union[int, None] = 20
-
-
-
-# @app.post('/generate')
-# def generate(body: Body):
-#     """
-#     Generate a pseudo-random token ID of twenty characters by default. Example POST request body:
-
-#     {
-#         "length": 20
-#     }
-#     """
-#     string = base64.b64encode(os.urandom(64))[:body.length].decode('utf-8')
-#     return {'token': string}
