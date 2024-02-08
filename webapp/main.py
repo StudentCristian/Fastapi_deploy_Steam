@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 from fastapi.encoders import jsonable_encoder
 from scipy.sparse import csr_matrix
-from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.metrics.pairwise import cosine_similarity 
 from surprise import Reader, Dataset, SVD
 from surprise.model_selection import train_test_split, GridSearchCV
 import pickle 
